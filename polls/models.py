@@ -13,6 +13,3 @@ class Response(models.Model):
 
     def __str__(self):
         return self.timestamp.strftime('%Y-%m-%d %H:%M:%S')
-
-class Histogram(models.Model):
-    number_of_bins = models.IntegerField(default=8)

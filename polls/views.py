@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Poll, Response, Histogram
+from .models import Poll, Response
 from .forms import ResponseForm
 import matplotlib
 matplotlib.use('Agg')  # Use non-GUI backend for rendering plots
