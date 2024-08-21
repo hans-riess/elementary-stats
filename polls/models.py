@@ -2,8 +2,17 @@ from django.db import models
 
 class Poll(models.Model):
     question_text = models.CharField(max_length=200)
+    instruction_text = models.TextField(default='')
+    def __str__(self):
+        return self.question_text
 
 class Response(models.Model):
     poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
     answer = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.timestamp.strftime('%Y-%m-%d %H:%M:%S')
+
+class Histogram(models.Model):
+    number_of_bins = models.IntegerField(default=8)

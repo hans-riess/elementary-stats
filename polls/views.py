@@ -1,11 +1,11 @@
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Poll, Response, Histogram
+from .forms import ResponseForm
 import matplotlib
-matplotlib.use('Agg')  # Use the Agg backend for rendering to a file
+matplotlib.use('Agg')  # Use non-GUI backend for rendering plots
 import matplotlib.pyplot as plt
 import io
 import urllib, base64
-from django.shortcuts import render, get_object_or_404, redirect
-from .forms import ResponseForm
-from .models import Poll, Response
 
 def poll_view(request, poll_id):
     poll = get_object_or_404(Poll, pk=poll_id)
@@ -22,27 +22,22 @@ def poll_view(request, poll_id):
 def poll_results(request, poll_id):
     poll = get_object_or_404(Poll, pk=poll_id)
     responses = Response.objects.filter(poll=poll)
+    response_texts = [r.answer for r in responses]
 
-    # Prepare data for histogram
-    responses = [r.answer for r in responses]
-
-    # Create the histogram
-    plt.figure(figsize=(10, 6))
-    plt.hist(responses, bins=10, edgecolor='black')
-    plt.title(f'Results for "{poll.question_text}"')
+    plt.figure(figsize=(10, 6),dpi=100)
+    plt.hist(response_texts, bins=8, edgecolor='black',color='#660000')
+    plt.title(f'Histogram: "{poll.question_text}"')
     plt.xlabel('Answers')
     plt.ylabel('Frequency')
 
-    # Save the plot to a BytesIO object
     buffer = io.BytesIO()
     plt.savefig(buffer, format='png')
     buffer.seek(0)
     image_png = buffer.getvalue()
     buffer.close()
-    plt.close()  # Close the plot to free memory
+    plt.close()
 
-    # Encode the image to base64 to render in HTML
     image_base64 = base64.b64encode(image_png).decode('utf-8')
     image_uri = f"data:image/png;base64,{image_base64}"
 
-    return render(request, 'poll_results.html', {'poll': poll, 'image_uri': image_uri})
+    return render(request, 'results.html', {'poll': poll, 'image_uri': image_uri})
