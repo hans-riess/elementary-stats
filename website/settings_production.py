@@ -14,7 +14,13 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +32,9 @@ SECRET_KEY = "django-insecure-_1565n%(dc^nupl67%$1@0=zwsfzy&-7-67!13t3v13(69(_#z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['elementary-stats.herokuapp.com','elementary-stats.com']
+ALLOWED_HOSTS = ['elementary-stats.herokuapp.com',
+                 'elementary-stats-243917afedc1.herokuapp.com',
+                 'elementary-stats.com']
 
 # SSL
 SECURE_SSL_REDIRECT = True
@@ -85,12 +93,6 @@ WSGI_APPLICATION = "website.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-import dj_database_url
-
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-}
 
 
 # Password validation
