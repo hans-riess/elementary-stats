@@ -24,6 +24,7 @@ def poll_results(request, poll_id):
     poll = get_object_or_404(Poll, pk=poll_id)
     responses = Response.objects.filter(poll=poll)
     response_texts = [r.answer for r in responses]
+    int_response_texts = [int(r.answer) for r in responses]
 
     plt.figure(figsize=(10, 6),dpi=100)
     plt.hist(response_texts, bins=6, edgecolor='black',color='#660000')
@@ -43,4 +44,9 @@ def poll_results(request, poll_id):
     image_base64 = base64.b64encode(image_png).decode('utf-8')
     image_uri = f"data:image/png;base64,{image_base64}"
 
-    return render(request, 'results.html', {'poll': poll, 'image_uri': image_uri})
+    return render(request, 'results.html', {'poll': poll, 
+                                            'image_uri': image_uri,
+                                            'responses':int_response_texts})
+
+def home(request):
+    return render(request, 'index.html')

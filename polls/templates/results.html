@@ -1,2 +1,8 @@
 <h2>Results for: "{{ poll.question_text }}"</h2>
 <img src="{{ image_uri }}" alt="Histogram of poll results">
+<h3> Data </h3>
+<ul>
+    {% for response in responses %}
+        {{ response}},
+    {% endfor %}
+</ul>
