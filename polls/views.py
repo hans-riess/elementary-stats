@@ -4,6 +4,7 @@ from .forms import ResponseForm
 import matplotlib
 matplotlib.use('Agg')  # Use non-GUI backend for rendering plots
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 import io
 import urllib, base64
 
@@ -25,10 +26,12 @@ def poll_results(request, poll_id):
     response_texts = [r.answer for r in responses]
 
     plt.figure(figsize=(10, 6),dpi=100)
-    plt.hist(response_texts, bins=8, edgecolor='black',color='#660000')
+    plt.hist(response_texts, bins=6, edgecolor='black',color='#660000')
     plt.title(f'Histogram: "{poll.question_text}"')
     plt.xlabel('Answers')
+    plt.xticks([0,1,2,3,4,5,6,7,8,9,10])
     plt.ylabel('Frequency')
+    plt.gca().yaxis.set_major_locator(MaxNLocator(integer=True))
 
     buffer = io.BytesIO()
     plt.savefig(buffer, format='png')

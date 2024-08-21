@@ -8,3 +8,6 @@ class ResponseForm(forms.ModelForm):
 
 class ResultsForm(forms.ModelForm):
     pass
+
+class BinsForm(forms.Form):
+    bins = forms.IntegerField(label='Number of Bins', min_value=1, initial=10)
