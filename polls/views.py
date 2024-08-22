@@ -49,4 +49,5 @@ def poll_results(request, poll_id):
                                             'responses':int_response_texts})
 
 def home(request):
-    return render(request, 'index.html')
+    polls = Poll.objects.all()
+    return render(request, 'index.html', {'polls': polls})
