@@ -1,5 +1,5 @@
 <h1> Welcome to Stats Class! </h1>
 
 {% for poll in polls %}
-    <li><a href="{% url 'polls:poll_view' poll.id %}">{{ poll.question_text }}</a></li>
+    <li><a href="{% url 'poll_view' poll.id %}">{{ poll.question_text }}</a></li>
 {% endfor %}
