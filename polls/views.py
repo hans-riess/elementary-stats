@@ -30,9 +30,9 @@ def poll_results(request, poll_id):
     plt.hist(response_texts, bins=6, edgecolor='black',color='#660000')
     plt.title(f'Histogram: "{poll.question_text}"')
     plt.xlabel('Answers')
-    plt.xticks([0,1,2,3,4,5,6,7,8,9,10])
     plt.ylabel('Frequency')
     plt.gca().yaxis.set_major_locator(MaxNLocator(integer=True))
+    plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
 
     buffer = io.BytesIO()
     plt.savefig(buffer, format='png')
