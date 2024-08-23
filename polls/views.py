@@ -29,7 +29,7 @@ def poll_results(request, poll_id):
     float_response_texts = [float(r.answer) for r in responses]
 
     plt.figure(figsize=(10, 6),dpi=100)
-    plt.hist(response_texts, bins=6, edgecolor='black',color='#660000')
+    plt.hist(response_texts, bins=8, edgecolor='black',color='#660000')
     plt.title(f'Histogram: "{poll.question_text}"')
     plt.xlabel('Answers')
     plt.ylabel('Frequency')
