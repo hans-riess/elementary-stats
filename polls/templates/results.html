@@ -6,3 +6,16 @@
         {{ response}},
     {% endfor %}
 </ul>
+<h3> Summary Statistics </h3>
+<ul>
+    <li> Count: {{ count }}</li>
+    <li> Mean: {{ mean|floatformat:2}}</li>
+    <li> Median: {{ median }}</li>
+    <li> Mode: {{ mode }}</li>
+    <li> Range: {{ range }}</li>
+    <li> Standard Deviation: {{ std_dev|floatformat:2 }}</li>
+    <li> Variance: {{ variance | floatformat:2}}</li>
+    <li> Min: {{ minimum }}</li>
+    <li> Max: {{ maximum }}</li>
+    <li> IQR: {{ interquartile }}</li>
+</ul>

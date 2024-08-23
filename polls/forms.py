@@ -7,7 +7,7 @@ class ResponseForm(forms.ModelForm):
     class Meta:
         model = Response
         fields = ['answer']
-    # captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
 
 class ResultsForm(forms.ModelForm):
     pass

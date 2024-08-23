@@ -6,6 +6,7 @@
     <input type="hidden" id="id_captcha" name="captcha">
     <button type="submit">Submit</button>
 </form>
+<a href="{% url 'poll_results' poll.id %}">Go to Results</a>
 <script src="https://www.google.com/recaptcha/api.js?render={{ RECAPTCHA_PUBLIC_KEY }}"></script>
 <script>
     grecaptcha.ready(function() {
