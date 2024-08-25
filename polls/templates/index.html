@@ -1,8 +1,123 @@
-<h1> Welcome to Stats Class! </h1>
+{% comment %} <h1> Welcome to Stats Class! </h1>
 
 If you are seeing this page, it means that you are enrolled in Math 104 at the College of Charleston. Yay!
 
 <h2> Polls </h2>
 {% for poll in polls %}
     <li><a href="{% url 'poll_view' poll.id %}">{{ poll.question_text }}</a></li>
-{% endfor %}
+{% endfor %} {% endcomment %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Elementary Statistics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+	</head>
+	<body class="is-preload homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
+						<!-- Logo -->
+                            <img src='../static/images/normal.jpg' alt="Normal Distribution" style="width: 100%; height: auto;"/>
+                            <div id="logo">
+								<h1><a>Math 104</a></h1>
+								<span>Fall 2024 @ The College of Charleston</span>
+							</div>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+                                    <li>
+                                        <a href="../../#">Home</a>
+									<li>
+										<a href="#">Class Polls</a>
+										<ul>
+                                            {% for poll in polls %}
+                                                <li><a href="{% url 'poll_view' poll.id %}">{{ poll.question_text }}</a></li>
+                                            {% endfor %}
+										</ul>
+									</li>
+								</ul>
+							</nav>
+
+					</header>
+				</div>
+
+			<!-- Banner -->
+				<div id="banner-wrapper">
+					<div id="banner" class="box container">
+						<div class="row">
+							<div class="col-7 col-12-medium">
+								<h2>Elementary Statistics</h2>
+								<p>Fall 2024</p>
+							</div>
+							<div class="col-5 col-12-medium">
+								<ul>
+                                    <li><a href="/static/files/syllabus.pdf" class="button alt large icon solid fa-question-circle">Syllabus</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Helpful Links</h3>
+										<ul class="style2">
+											<li><a href="https://lms.cofc.edu/d2l/home">OAKS</a></li>
+											<li><a href="https://learn.hawkeslearning.edu">Hawkes</a></li>
+											<li><a href="https://chatgpt.com/g/g-ugpSsGhRl-math-104-genie">Math 104 Genie</a></li>
+										</ul>
+									</section>
+
+							</div>
+	
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Contact -->
+                                    <section class="widget contact last">
+                                        <h3>Instructor</h3>
+                                        <p><strong>Dr. Hans Riess</strong><br />
+                                        Robert Scott Small (RSS) 201<br />
+                                        Email: <a href="mailto:riesshm@cofc.edu">riesshm@cofc.edu</a></p>
+                                    </section>
+									</section>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										<li>&copy; Elementary Stats. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/jquery.dropotron.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>

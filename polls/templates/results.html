@@ -1,21 +1,130 @@
-<h2>Results for: "{{ poll.question_text }}"</h2>
-<img src="{{ image_uri }}" alt="Histogram of poll results">
-<h3> Data </h3>
-<ul>
-    {% for response in responses %}
-        {{ response}},
-    {% endfor %}
-</ul>
-<h3> Summary Statistics </h3>
-<ul>
-    <li> Count: {{ count }}</li>
-    <li> Mean: {{ mean|floatformat:2}}</li>
-    <li> Median: {{ median }}</li>
-    <li> Mode: {{ mode }}</li>
-    <li> Range: {{ range }}</li>
-    <li> Standard Deviation: {{ std_dev|floatformat:2 }}</li>
-    <li> Variance: {{ variance | floatformat:2}}</li>
-    <li> Min: {{ minimum }}</li>
-    <li> Max: {{ maximum }}</li>
-    <li> IQR: {{ interquartile }}</li>
-</ul>
+<!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Poll</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../static/css/main.css" />
+	</head>
+	<body class="is-preload no-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
+
+						<!-- Logo -->
+                        <img src='../../../static/images/normal.jpg' alt="Normal Distribution" style="width: 100%; height: auto;"/>
+							<div id="logo">
+								<h1><a href="../#">Math 104</a></h1>
+								<span>Fall 2024 @ The College of Charleston</span>
+							</div>
+                            <nav id="nav">
+								<ul>
+									<li>
+										<a href="../../">Home</a>
+									</li>
+								</ul>
+							</nav>
+
+                </header>
+            </div>
+
+					</header>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+						<div id="content">
+
+							<!-- Content -->
+								<article>
+
+                 <h2>Results for: "{{ poll.question_text }}"</h2>
+                <img src="{{ image_uri }}" alt="Histogram of poll results">
+                <h3> Data </h3>
+                <ul>
+                    {% for response in responses %}
+                        {{ response}},
+                    {% endfor %}
+                </ul>
+                <h3> Summary Statistics </h3>
+                <ul>
+                    <li> Count: {{ count }}</li>
+                    <li> Mean: {{ mean|floatformat:2}}</li>
+                    <li> Median: {{ median }}</li>
+                    <li> Mode: {{ mode }}</li>
+                    <li> Range: {{ range }}</li>
+                    <li> Standard Deviation: {{ std_dev|floatformat:2 }}</li>
+                    <li> Variance: {{ variance | floatformat:2}}</li>
+                    <li> Min: {{ minimum }}</li>
+                    <li> Max: {{ maximum }}</li>
+                    <li> IQR: {{ interquartile }}</li>
+                </ul>
+
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+            <div id="footer-wrapper">
+                <footer id="footer" class="container">
+                    <div class="row">
+                        <div class="col-3 col-6-medium col-12-small">
+
+                            <!-- Links -->
+                                <section class="widget links">
+                                    <h3>Helpful Links</h3>
+                                    <ul class="style2">
+                                        <li><a href="https://lms.cofc.edu/d2l/home">OAKS</a></li>
+                                        <li><a href="https://learn.hawkeslearning.edu">Hawkes</a></li>
+                                        <li><a href="https://chatgpt.com/g/g-ugpSsGhRl-math-104-genie">Math 104 Genie</a></li>
+                                    </ul>
+                                </section>
+
+                        </div>
+
+                        <div class="col-3 col-6-medium col-12-small">
+
+                            <!-- Contact -->
+                                <section class="widget contact last">
+                                    <h3>Instructor</h3>
+                                    <p><strong>Dr. Hans Riess</strong><br />
+                                    Robert Scott Small (RSS) 201<br />
+                                    Email: <a href="mailto:riesshm@cofc.edu">riesshm@cofc.edu</a></p>
+                                </section>
+                                </section>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="copyright">
+                                <ul class="menu">
+                                    <li>&copy; Elementary Stats. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+
+		<!-- Scripts -->
+
+			<script src="../../static/js/jquery.min.js"></script>
+			<script src="../../static/js/jquery.dropotron.min.js"></script>
+			<script src="../../static/js/browser.min.js"></script>
+			<script src="../../static/js/breakpoints.min.js"></script>
+			<script src="../../static/js/util.js"></script>
+			<script src="../../static/js/main.js"></script>
+
+	</body>
+</html>
