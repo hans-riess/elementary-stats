@@ -47,7 +47,9 @@
 								<article>
 
                  <h2>Results for: "{{ poll.question_text }}"</h2>
-                <img src="{{ image_uri }}" alt="Histogram of poll results">
+                <div class="image-container">
+                    <img src="{{ image_uri }}" alt="Histogram of poll results" style="width: 100%; height: auto;">
+                </div>
                 <h3> Data </h3>
                 <ul>
                     {% for response in responses %}
