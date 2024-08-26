@@ -10,6 +10,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../../static/css/main.css" />
+        <script type="text/javascript" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
 	</head>
 	<body class="is-preload no-sidebar">
 		<div id="page-wrapper">
@@ -59,16 +62,13 @@
                 {% if display_summary_statistics %}
                 <h3> Summary Statistics </h3>
                 <ul>
-                    <li> Count: {{ count }}</li>
-                    <li> Mean: {{ mean|floatformat:2}}</li>
-                    <li> Median: {{ median }}</li>
-                    <li> Mode: {{ mode }}</li>
-                    <li> Range: {{ range }}</li>
-                    <li> Standard Deviation: {{ std_dev|floatformat:2 }}</li>
-                    <li> Variance: {{ variance | floatformat:2}}</li>
-                    <li> Min: {{ minimum }}</li>
-                    <li> Max: {{ maximum }}</li>
-                    <li> IQR: {{ interquartile }}</li>
+                    <li> \( n = {{ count }} \)</li>
+                    <li> \( \bar{x} = {{ mean|floatformat:2}} \)</li>
+                    <li> Median \( = {{ median }} \)</li>
+                    <li> Mode \( = {{ mode }} \)</li>
+                    <li> Range \( = {{ range }} \)</li>
+                    <li> \( s^2 = {{ variance | floatformat:2}} \)</li>
+                    <li> \( s = {{ std_dev|floatformat:2 }} \)</li>
                 </ul>
                 {% endif %}
 

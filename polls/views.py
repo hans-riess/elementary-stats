@@ -79,10 +79,7 @@ def poll_results(request, poll_id):
                                             'median':median,
                                             'mode':mode,
                                             'std_dev':std_dev,
-                                            'minimum':minimum,
-                                            'maximum':maximum,
                                             'variance':variance,
-                                            'interquartile':interquartile,
                                             'range':range
                                             })
 
