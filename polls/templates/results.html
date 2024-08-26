@@ -56,6 +56,7 @@
                         {{ response}},
                     {% endfor %}
                 </ul>
+                {% if display_summary_statistics %}
                 <h3> Summary Statistics </h3>
                 <ul>
                     <li> Count: {{ count }}</li>
@@ -69,6 +70,7 @@
                     <li> Max: {{ maximum }}</li>
                     <li> IQR: {{ interquartile }}</li>
                 </ul>
+                {% endif %}
 
 						</div>
 					</div>
@@ -84,8 +86,8 @@
                                 <section class="widget links">
                                     <h3>Helpful Links</h3>
                                     <ul class="style2">
-                                        <li><a href="https://lms.cofc.edu/d2l/home">OAKS</a></li>
-                                        <li><a href="https://learn.hawkeslearning.edu">Hawkes</a></li>
+                                        <li><a href="https://lms.cofc.edu/d2l/home/343359">OAKS</a></li>
+                                        <li><a href="https://learn.hawkeslearning.com">Hawkes</a></li>
                                         <li><a href="https://chatgpt.com/g/g-ugpSsGhRl-math-104-genie">Math 104 Genie</a></li>
                                     </ul>
                                 </section>

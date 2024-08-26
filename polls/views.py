@@ -73,6 +73,7 @@ def poll_results(request, poll_id):
     return render(request, 'results.html', {'poll': poll, 
                                             'image_uri': image_uri,
                                             'responses':int_response_texts,
+                                            'dislay_summary_statistics':poll.display_summary_statistics,
                                             'count':count,
                                             'mean':mean,
                                             'median':median,
