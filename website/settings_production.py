@@ -31,7 +31,7 @@ DATABASES = {
 SECRET_KEY = "django-insecure-_1565n%(dc^nupl67%$1@0=zwsfzy&-7-67!13t3v13(69(_#z"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['elementary-stats.herokuapp.com',
                  'elementary-stats-243917afedc1.herokuapp.com',
