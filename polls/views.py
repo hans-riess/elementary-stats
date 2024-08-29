@@ -54,9 +54,8 @@ def poll_results(request, poll_id):
         median = np.median(float_response_texts)
         mode = np.argmax(np.bincount(int_response_texts))
         std_dev = np.std(float_response_texts)
-        variance = np.var(float_response_texts)
-        interquartile = np.percentile(float_response_texts, 75) - np.percentile(float_response_texts, 25)
-        range = max(float_response_texts) - min(float_response_texts)
+        quartile_1 = np.percentile(float_response_texts, 25)
+        quartile_3 = np.percentile(float_response_texts, 75)
         minimum = min(float_response_texts)
         maximum = max(float_response_texts)
     except:
@@ -64,9 +63,8 @@ def poll_results(request, poll_id):
         median = None
         mode = None
         std_dev = None
-        variance = None
-        interquartile = None
-        range = None
+        quartile_1 = None
+        quartile_3 = None
         minimum = None
         maximum = None
 
@@ -79,8 +77,10 @@ def poll_results(request, poll_id):
                                             'median':median,
                                             'mode':mode,
                                             'std_dev':std_dev,
-                                            'variance':variance,
-                                            'range':range
+                                            'quartile_1':quartile_1,
+                                            'quartile_3':quartile_3,
+                                            'minimum':minimum,
+                                            'maximum':maximum,
                                             })
 
 def home(request):

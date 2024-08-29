@@ -50,25 +50,22 @@
 								<article>
 
                  <h2>Results for: "{{ poll.question_text }}"</h2>
+                <h3> Histogram </h3>
                 <div class="image-container">
                     <img src="{{ image_uri }}" alt="Histogram of poll results" style="width: 100%; height: auto;">
                 </div>
-                <h3> Data </h3>
-                <ul>
-                    {% for response in responses %}
-                        {{ response}},
-                    {% endfor %}
-                </ul>
                 {% if display_summary_statistics %}
                 <h3> Summary Statistics </h3>
                 <ul>
-                    <li> \( n = {{ count }} \)</li>
-                    <li> \( \bar{x} = {{ mean|floatformat:2}} \)</li>
-                    <li> Median \( = {{ median }} \)</li>
-                    <li> Mode \( = {{ mode }} \)</li>
-                    <li> Range \( = {{ range }} \)</li>
-                    <li> \( s^2 = {{ variance | floatformat:2}} \)</li>
-                    <li> \( s = {{ std_dev|floatformat:2 }} \)</li>
+                    <li> \( n = {{ count }} \), number of samples</li>
+                    <li> \( \bar{x} = {{ mean|floatformat:2}} \), sample mean</li>
+                    <li> \( \mathrm{Mode} = {{ mode }} \), mode</li>
+                    <li> \( s = {{ std_dev|floatformat:2 }} \), sample standard deviation</li>
+                    <li> \( Q_1 = {{ quartile_1 }} \), 1st quartile</li>
+                    <li> \( Q_2 = {{ median }} \), median (2nd quartile)</li>
+                    <li> \( Q_3 = {{ quartile_3 }} \), 3rd quartile</li>
+                    <li> \( \min = {{ minimum }} \), minimum value</li>
+                    <li> \( \max = {{ maximum }} \), maximum value</li>
                 </ul>
                 {% endif %}
 
